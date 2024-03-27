@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import "normalize.css";
+@font-face {
+    font-family: "icomoon";
+    src: url("./fonts/icomoon.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body{
+    font-family: "Roboto";
+    line-height: 1.4;
+}
+
+.container{
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
