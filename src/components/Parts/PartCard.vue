@@ -4,11 +4,11 @@ defineProps({
   title: String,
   car: String,
   partNumber: Array,
-  price: Number,
+  price: String,
   fee: Boolean,
-  delivery: Number,
+  delivery: String,
   seller: String,
-  location: String,
+  location: Array,
   inBasket: Boolean,
   isFavorite: Boolean
 })
@@ -22,17 +22,15 @@ import ActionButton from "@/components/Feature/ActionButton.vue";
          :style="{'background-image': 'url(' + (image || 'src/assets/images/logo.png') + ')'}"></div>
     <div class="part-content">
       <div class="part-content__title" v-if="title">{{ title }}</div>
-      <div class="part-content__car" v-if="car">{{ car }}</div>
+      <div class="part-content__car" v-if="car">{{car.replace("&lt;br&gt;", ' ')}}</div>
       <div class="part-content__part-number">
-        <span v-for="(item, index) in partNumber" :key="index">
-          {{ item }}
-        </span>
+        {{ partNumber.join(', ') }}
       </div>
-      <div class="part-content__price">{{ price }} €</div>
+      <div class="part-content__price">{{ price }}</div>
       <div class="part-content__fee" v-if="fee">+ Service Fee</div>
-      <div class="part-content__delivery" v-if="delivery > 0">+ Delivery: {{ delivery }} €</div>
+      <div class="part-content__delivery" v-if="delivery">+ Delivery: {{ delivery }}</div>
       <div class="part-content__seller" v-if="seller">{{ seller }}</div>
-      <div class="part-content__location" v-if="location">{{ location }}</div>
+      <div class="part-content__location" v-if="location">{{ location.join(', ') }}</div>
     </div>
     <div class="actions">
       <ActionButton
